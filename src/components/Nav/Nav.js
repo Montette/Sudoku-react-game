@@ -3,11 +3,12 @@ import React from 'react';
 const Nav = (props) => {
     return (
         <div>
-            <button>Check</button>
-            <button>New Game</button>
-            <button>Solve</button>
-            <button>Restart</button>
+            <button onClick={props.check}>Check</button>
+            <button onClick={props.newGame}>New Game</button>
+            <button onClick={props.solve}>Solve</button>
+            <button onClick={props.restart}>Restart</button>
         </div>
+
     )
 }
 
