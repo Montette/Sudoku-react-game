@@ -12,7 +12,8 @@ class App extends Component {
         initialBoard: sudokuBoard,
         board: sudokuBoard,
         difficulty: 'easy',
-        checkClicked: false
+        checkClicked: false,
+        showModal: false
     }
 
     changeNumberHandler = (event, index) => {
@@ -60,10 +61,20 @@ class App extends Component {
 
     handleDifficulty = (e) => {
       this.setState({
-          difficulty: e.target.value
+          difficulty: e.target.value,
+          // showModal: false
       });
       this.newGameHandler()
   }
+
+    showModal = () => {
+    this.setState({ showModal: true });
+    };
+
+    closeModal = () => {
+      this.setState({ showModal: false });
+      };
+
 
     render() {
         let solve_sudoku = null;
@@ -80,13 +91,17 @@ class App extends Component {
                     check={this.checkHandler}
                     newGame={this.newGameHandler}
                     solve={this.solveHandler}
-                    restart={this.restartHandler}/>
+                    restart={this.restartHandler}
+                    showModal={this.showModal}/>
+                    
                 
                     {solve_sudoku}
                
                 <Difficulty
+                show={this.state.showModal}
                 difficulty={this.state.difficulty}
                 changeDifficulty={this.handleDifficulty}
+                handleClose = {this.closeModal}
                 />
             </div>
         );

@@ -7,6 +7,7 @@ const Nav = (props) => {
             <button onClick={props.newGame}>New Game</button>
             <button onClick={props.solve}>Solve</button>
             <button onClick={props.restart}>Restart</button>
+            <button onClick={props.showModal}>Difficulty</button>
         </div>
 
     )
