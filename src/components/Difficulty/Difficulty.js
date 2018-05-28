@@ -10,46 +10,52 @@ const Difficulty = (props) => {
         <div className={showHideClass.join(' ')}>
             <div className={classes.modalMain}>
                 <form>
-                    <label>Easy
+                    <label>
                         <input
                             type="radio"
                             name='easy'
                             value="easy"
                             onChange={props.changeDifficulty}
                             checked={props.difficulty === 'easy'}/>
+                            Easy
                     </label>
-                    <label>Medium<input
+                    <label><input
                         type="radio"
                         value="medium"
                         onChange={props.changeDifficulty}
                         checked={props.difficulty === 'medium'}/>
+                        Medium
                     </label>
-                    <label>Hard
+                    <label>
                         <input
                             type="radio"
                             value="hard"
                             onChange={props.changeDifficulty}
                             checked={props.difficulty === 'hard'}/>
+                            Hard
                     </label>
 
-                    <label>Very hard<input
+                    <label><input
                         type="radio"
                         value="very-hard"
                         onChange={props.changeDifficulty}
                         checked={props.difficulty === 'very-hard'}/>
+                        Very hard
                     </label>
 
-                    <label>Insane <input
+                    <label> <input
                         type="radio"
                         value="insane"
                         onChange={props.changeDifficulty}
                         checked={props.difficulty === 'insane'}/>
+                        Insane
                     </label>
-                    <label>Inhuman <input
+                    <label> <input
                         type="radio"
                         value="inhuman"
                         onChange={props.changeDifficulty}
                         checked={props.difficulty === 'inhuman'}/>
+                        Inhuman
                     </label>
                 </form>
                 <button onClick={props.handleClose}>close</button>

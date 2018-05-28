@@ -13,19 +13,20 @@ class App extends Component {
         board: sudokuBoard,
         difficulty: 'easy',
         checkClicked: false,
-        showModal: false
+        showModal: false,
     }
 
     changeNumberHandler = (event, index) => {
         let updatedBoard = [...this.state.board];
         updatedBoard[index] = event.target.value;
-        if (this.state.initialBoard[index] === '.') {
+       
             this.setState({
                 board: updatedBoard.join(''),
-                checkClicked: false
+                checkClicked: false,
+
             });
 
-        }
+        
     }
 
     newGameHandler = () => {
@@ -86,7 +87,8 @@ class App extends Component {
         return (
             <div className={classes.App}>
                 <h1>Sudoku</h1>
-                <Board fields={[...this.state.board]} changeNumber={this.changeNumberHandler}/>
+                <Board fields={[...this.state.board]} changeNumber={this.changeNumberHandler}
+                initialNumbers = {this.state.initialBoard}/>
                 <Nav
                     check={this.checkHandler}
                     newGame={this.newGameHandler}

@@ -4,7 +4,7 @@ import classes from './Board.css';
 
 const Board = (props) => {
 
-    let fields = props.fields.map((field, index) => <Tile key={index} content={field} changeNumber={(event)=>props.changeNumber(event, index)}/>)
+    let fields = props.fields.map((field, index) => <Tile key={index} indexNumber={index}content={field} changeNumber={(event)=>props.changeNumber(event, index)} initials={props.initialNumbers}/>)
     return (
         <div className={classes.boardContainer}>
         {fields}

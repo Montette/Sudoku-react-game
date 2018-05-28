@@ -1,5 +1,7 @@
 .boardContainer {
-    max-width: 504px;
+    width: 543px;
     margin-bottom: 30px;
+    border: 2px solid black;
+    border-right: 1px solid black;
 }
 
