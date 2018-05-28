@@ -60,12 +60,13 @@ class App extends Component {
         // be solved' : 'This sudoku can not be solved';
     }
 
-    handleDifficulty = (e) => {
-      this.setState({
-          difficulty: e.target.value,
-          // showModal: false
-      });
-      this.newGameHandler()
+    handleDifficulty = (difficulty) => {
+      // this.setState({
+      //     difficulty: difficulty
+      //     // showModal: false
+      // });
+      let sudokuBoard = sudoku.generate(difficulty);
+      this.setState({initialBoard: sudokuBoard, board: sudokuBoard, checkClicked: false, difficulty: difficulty})
   }
 
     showModal = () => {

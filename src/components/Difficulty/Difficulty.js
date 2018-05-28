@@ -1,9 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classes from './Difficulty.css';
 
-const Difficulty = (props) => {
+class Difficulty extends Component {
+    // constructor(props) {
+    //     super(props)
+    //     this.difficultyHandler = this.difficultyHandler.bind(this)
+    //   }
+    state = {
+        difficulty: ''
+    }
+
+    difficultyHandler = (event)=> {
+   
+        this.setState({
+            difficulty: event.target.value
+        })
+    }
+
+    // difficultyHandlerForm = (event)=> {
+    //     event.preventDefault();
+    //     this.state.checked
+    // }
+    handleCancel =()=> {
+        this.props.handleClose()
+    }
+    handleSave =()=> {
+        this.props.changeDifficulty(this.state.difficulty);
+        this.handleCancel()
+    }
+    render(){
+     
+        
     const showHideClass = [classes.modal];
-    props.show
+    this.props.show
         ? showHideClass.push(classes.displayBlock)
         : showHideClass.push(classes.displayNone);
     return (
@@ -15,55 +44,56 @@ const Difficulty = (props) => {
                             type="radio"
                             name='easy'
                             value="easy"
-                            onChange={props.changeDifficulty}
-                            checked={props.difficulty === 'easy'}/>
+                            onChange={this.difficultyHandler}
+                            checked={this.state.difficulty === 'easy'}/>
                             Easy
                     </label>
                     <label><input
                         type="radio"
                         value="medium"
-                        onChange={props.changeDifficulty}
-                        checked={props.difficulty === 'medium'}/>
+                        onChange={this.difficultyHandler}
+                        checked={this.state.difficulty === 'medium'}/>
                         Medium
                     </label>
                     <label>
                         <input
                             type="radio"
                             value="hard"
-                            onChange={props.changeDifficulty}
-                            checked={props.difficulty === 'hard'}/>
+                            onChange={this.difficultyHandler}
+                            checked={this.state.difficulty === 'hard'}/>
                             Hard
                     </label>
 
                     <label><input
                         type="radio"
                         value="very-hard"
-                        onChange={props.changeDifficulty}
-                        checked={props.difficulty === 'very-hard'}/>
+                        onChange={this.difficultyHandler}
+                        checked={this.state.difficulty === 'very-hard'}/>
                         Very hard
                     </label>
 
                     <label> <input
                         type="radio"
                         value="insane"
-                        onChange={props.changeDifficulty}
-                        checked={props.difficulty === 'insane'}/>
+                        onChange={this.difficultyHandler}
+                        checked={this.state.difficulty === 'insane'}/>
                         Insane
                     </label>
                     <label> <input
                         type="radio"
                         value="inhuman"
-                        onChange={props.changeDifficulty}
-                        checked={props.difficulty === 'inhuman'}/>
+                        onChange={this.difficultyHandler}
+                        checked={this.state.difficulty === 'inhuman'}/>
                         Inhuman
                     </label>
                 </form>
-                <button onClick={props.handleClose}>close</button>
+                <button onClick={this.handleCancel}>cancel</button>
+                <button  onClick={this.handleSave}>save</button>
             </div>
 
         </div>
 
-    )
+    )}
 }
 
 export default Difficulty
