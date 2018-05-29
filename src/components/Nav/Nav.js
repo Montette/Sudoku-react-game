@@ -1,4 +1,5 @@
 import React from 'react';
+import PositionedSnackbar from '../Material-ui/PositionedSnackbar'
 
 const Nav = (props) => {
     return (
@@ -8,7 +9,7 @@ const Nav = (props) => {
             <button onClick={props.solve}>Solve</button>
             <button onClick={props.restart}>Restart</button>
             <button onClick={props.showModal}>Difficulty</button>
-            <button onClick={props.saveGame}>Save</button>
+            <PositionedSnackbar clicked={props.saveGame}/>
             <button onClick={props.loadGame}>Load</button>
         </div>
 

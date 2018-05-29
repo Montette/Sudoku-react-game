@@ -18,24 +18,25 @@
   .modalMain {
     position:fixed;
     background: white;
-    width: 80%;
+    width: 70%;
     height: 600px;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   
   }
 
-  .modalMain form {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
+  /* .modalMain form {
+
     width: 100px;
     margin: 0 auto;
     text-align: left;
-  }
+  } */
 
-  .modalMain label {
+  /* .modalMain label {
       display: block;
   }
-  
+   */

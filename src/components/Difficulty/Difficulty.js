@@ -1,13 +1,31 @@
 import React, {Component} from 'react';
-import classes from './Difficulty.css';
+import myStyle from './Difficulty.css';
+import { withStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
+
+
+const styles = theme => ({
+    root: {
+      display: 'flex',
+    },
+    formControl: {
+      margin: theme.spacing.unit * 3,
+    },
+    group: {
+      margin: `${theme.spacing.unit}px 0`,
+    },
+  });
 
 class Difficulty extends Component {
-    // constructor(props) {
-    //     super(props)
-    //     this.difficultyHandler = this.difficultyHandler.bind(this)
-    //   }
+
     state = {
-        difficulty: ''
+        difficulty: 'easy'
     }
 
     difficultyHandler = (event)=> {
@@ -17,10 +35,6 @@ class Difficulty extends Component {
         })
     }
 
-    // difficultyHandlerForm = (event)=> {
-    //     event.preventDefault();
-    //     this.state.checked
-    // }
     handleCancel =()=> {
         this.props.handleClose()
     }
@@ -30,65 +44,37 @@ class Difficulty extends Component {
     }
     render(){
      
-        
-    const showHideClass = [classes.modal];
+    const { classes } = this.props;   
+    const showHideClass = [myStyle.modal];
     this.props.show
-        ? showHideClass.push(classes.displayBlock)
-        : showHideClass.push(classes.displayNone);
+        ? showHideClass.push(myStyle.displayBlock)
+        : showHideClass.push(myStyle.displayNone);
     return (
         <div className={showHideClass.join(' ')}>
-            <div className={classes.modalMain}>
-                <form>
-                    <label>
-                        <input
-                            type="radio"
-                            name='easy'
-                            value="easy"
-                            onChange={this.difficultyHandler}
-                            checked={this.state.difficulty === 'easy'}/>
-                            Easy
-                    </label>
-                    <label><input
-                        type="radio"
-                        value="medium"
-                        onChange={this.difficultyHandler}
-                        checked={this.state.difficulty === 'medium'}/>
-                        Medium
-                    </label>
-                    <label>
-                        <input
-                            type="radio"
-                            value="hard"
-                            onChange={this.difficultyHandler}
-                            checked={this.state.difficulty === 'hard'}/>
-                            Hard
-                    </label>
-
-                    <label><input
-                        type="radio"
-                        value="very-hard"
-                        onChange={this.difficultyHandler}
-                        checked={this.state.difficulty === 'very-hard'}/>
-                        Very hard
-                    </label>
-
-                    <label> <input
-                        type="radio"
-                        value="insane"
-                        onChange={this.difficultyHandler}
-                        checked={this.state.difficulty === 'insane'}/>
-                        Insane
-                    </label>
-                    <label> <input
-                        type="radio"
-                        value="inhuman"
-                        onChange={this.difficultyHandler}
-                        checked={this.state.difficulty === 'inhuman'}/>
-                        Inhuman
-                    </label>
-                </form>
+            <div className={myStyle.modalMain}>
+            <FormControl component="fieldset" required className={classes.formControl}>
+            <FormLabel component="legend">Difficluty level</FormLabel>
+            <RadioGroup
+              aria-label="difficulty"
+              name="difficulty"
+              className={classes.group}
+              value={this.state.difficulty}
+              onChange={this.difficultyHandler}
+            >
+              <FormControlLabel value="easy" control={<Radio />} label="easy" />
+              <FormControlLabel value="medium" control={<Radio />} label="medium" />
+              <FormControlLabel value="hard" control={<Radio />} label="hard" />
+              <FormControlLabel value="very-hard" control={<Radio />} label="very-hard" />
+              <FormControlLabel value="insane" control={<Radio />} label="insane" />
+              <FormControlLabel value="inhuman" control={<Radio />} label="inhuman"/>
+              
+            </RadioGroup>
+            <FormHelperText>Remember, that changing difficulty level will restart your game!</FormHelperText>
+            </FormControl>
+                <div>
                 <button onClick={this.handleCancel}>cancel</button>
                 <button  onClick={this.handleSave}>save</button>
+                </div>
             </div>
 
         </div>
@@ -96,4 +82,5 @@ class Difficulty extends Component {
     )}
 }
 
-export default Difficulty
+// export default Difficulty
+export default withStyles(styles)(Difficulty);
