@@ -77,6 +77,18 @@ class App extends Component {
       this.setState({ showModal: false });
       };
 
+    saveHandler = ()=> {
+      let actualGame = this.state
+      localStorage.setItem('game', JSON.stringify(actualGame))
+    }
+
+    loadHandler = ()=> {
+      let myGame = JSON.parse(localStorage.getItem('game'));
+      // myGame = JSON.parse(myGame)
+      this.setState({...myGame})
+    }
+
+
 
     render() {
         let solve_sudoku = null;
@@ -95,7 +107,9 @@ class App extends Component {
                     newGame={this.newGameHandler}
                     solve={this.solveHandler}
                     restart={this.restartHandler}
-                    showModal={this.showModal}/>
+                    showModal={this.showModal}
+                    saveGame = {this.saveHandler}
+                    loadGame = {this.loadHandler}/>
                     
                 
                     {solve_sudoku}
