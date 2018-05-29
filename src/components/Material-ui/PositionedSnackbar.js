@@ -1,8 +1,25 @@
 import React from 'react';
 // import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import SaveIcon from '@material-ui/icons/CloudUpload';
+
+const styles = theme => ({
+    button: {
+      margin: theme.spacing.unit,
+    },
+    input: {
+      display: 'none',
+    },
+  });
+  
 
 class PositionedSnackbar extends React.Component {
+    
   state = {
     open: false,
     vertical: null,
@@ -19,12 +36,16 @@ class PositionedSnackbar extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
     const { vertical, horizontal, open } = this.state;
     return (
         <React.Fragment>
-        <button onClick={this.handleClick({ vertical: 'bottom', horizontal: 'right' })}>
-          Save
-        </button>
+        <ListItem button>
+        <ListItemIcon>
+          <SaveIcon />
+        </ListItemIcon>
+        <ListItemText onClick={this.handleClick} primary="Save" />
+      </ListItem>
         <Snackbar
           anchorOrigin={{ vertical, horizontal }}
           open={open}
@@ -39,4 +60,5 @@ class PositionedSnackbar extends React.Component {
   }
 }
 
-export default PositionedSnackbar;
+// export default PositionedSnackbar;
+export default withStyles(styles)(PositionedSnackbar);

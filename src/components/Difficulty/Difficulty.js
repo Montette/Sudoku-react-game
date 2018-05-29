@@ -7,6 +7,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -20,6 +21,9 @@ const styles = theme => ({
     group: {
       margin: `${theme.spacing.unit}px 0`,
     },
+    button: {
+        margin: theme.spacing.unit,
+      }
   });
 
 class Difficulty extends Component {
@@ -61,19 +65,19 @@ class Difficulty extends Component {
               value={this.state.difficulty}
               onChange={this.difficultyHandler}
             >
-              <FormControlLabel value="easy" control={<Radio />} label="easy" />
-              <FormControlLabel value="medium" control={<Radio />} label="medium" />
-              <FormControlLabel value="hard" control={<Radio />} label="hard" />
+              <FormControlLabel value="easy" control={<Radio color="primary"/>} label="easy" />
+              <FormControlLabel value="medium" control={<Radio color="primary" />} label="medium" />
+              <FormControlLabel value="hard" control={<Radio color="primary"/>} label="hard" />
               <FormControlLabel value="very-hard" control={<Radio />} label="very-hard" />
-              <FormControlLabel value="insane" control={<Radio />} label="insane" />
-              <FormControlLabel value="inhuman" control={<Radio />} label="inhuman"/>
+              <FormControlLabel value="insane" control={<Radio color="primary"/>} label="insane" />
+              <FormControlLabel value="inhuman" control={<Radio color="primary"/>} label="inhuman"/>
               
             </RadioGroup>
             <FormHelperText>Remember, that changing difficulty level will restart your game!</FormHelperText>
             </FormControl>
                 <div>
-                <button onClick={this.handleCancel}>cancel</button>
-                <button  onClick={this.handleSave}>save</button>
+                <Button variant="raised" color="primary" size="small" className={classes.button} onClick={this.handleCancel}>cancel</Button>
+                <Button variant="raised" color="primary" size="small" className={classes.button}  onClick={this.handleSave}>save</Button>
                 </div>
             </div>
 

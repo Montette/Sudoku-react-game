@@ -4,6 +4,7 @@ import Board from '../components/Board/Board';
 import Nav from '../components/Nav/Nav';
 import Difficulty from '../components/Difficulty/Difficulty';
 import sudoku from 'sudoku-umd';
+import Paper  from '../components/Material-ui/Paper'
 
 let sudokuBoard = sudoku.generate('easy');
 
@@ -98,18 +99,18 @@ class App extends Component {
                 : (<div><p>This sudoku can not be solved</p></div>);
         }
         return (
-            <div className={classes.App}>
-                <h1>Sudoku</h1>
-                <Board fields={[...this.state.board]} changeNumber={this.changeNumberHandler}
-                initialNumbers = {this.state.initialBoard}/>
-                <Nav
-                    check={this.checkHandler}
-                    newGame={this.newGameHandler}
+          <React.Fragment>
+          <Paper check={this.checkHandler} newGame={this.newGameHandler}
                     solve={this.solveHandler}
                     restart={this.restartHandler}
                     showModal={this.showModal}
                     saveGame = {this.saveHandler}
                     loadGame = {this.loadHandler}/>
+            <div className={classes.App}>
+            
+                <h1>Sudoku</h1>
+                <Board fields={[...this.state.board]} changeNumber={this.changeNumberHandler}
+                initialNumbers = {this.state.initialBoard}/>
                     
                 
                     {solve_sudoku}
@@ -121,6 +122,7 @@ class App extends Component {
                 handleClose = {this.closeModal}
                 />
             </div>
+            </React.Fragment>
         );
     }
 }
