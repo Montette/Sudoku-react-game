@@ -22,14 +22,16 @@ class PositionedSnackbar extends React.Component {
     
   state = {
     open: false,
-    vertical: null,
-    horizontal: null,
+    vertical: 'bottom',
+    horizontal: 'center',
   };
 
-  handleClick = state => () => {
-    this.setState({ open: true, ...state });
+  handleClick = () => {
+    this.setState({ ...this.state, open: true });
     this.props.clicked()
   };
+
+
 
   handleClose = () => {
     this.setState({ open: false });

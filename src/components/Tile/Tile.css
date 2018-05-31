@@ -7,11 +7,14 @@
     padding: 0;
     padding-left: 11px;
     background-color: rgba(238, 238, 238, 0.863);
+
+
 }
 
 .textField {
     padding-left: 5.5px;
     padding-right: 5.5px;
+    cursor: default;
 }
 div.field, .fieldsWrapper {
     display: inline-block;

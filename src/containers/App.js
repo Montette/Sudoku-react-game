@@ -4,7 +4,8 @@ import Board from '../components/Board/Board';
 import Nav from '../components/Nav/Nav';
 import Difficulty from '../components/Difficulty/Difficulty';
 import sudoku from 'sudoku-umd';
-import Paper  from '../components/Material-ui/Paper'
+import Paper  from '../components/Material-ui/Paper';
+import 'typeface-roboto'
 
 let sudokuBoard = sudoku.generate('easy');
 
@@ -108,7 +109,7 @@ class App extends Component {
                     loadGame = {this.loadHandler}/>
             <div className={classes.App}>
             
-                <h1>Sudoku</h1>
+                <h1>Sudoku Game</h1>
                 <Board fields={[...this.state.board]} changeNumber={this.changeNumberHandler}
                 initialNumbers = {this.state.initialBoard}/>
                     

@@ -15,12 +15,13 @@ import RestartIcon from '@material-ui/icons/Cached';
 import CheckIcon from '@material-ui/icons/Info';
 import SolveIcon from '@material-ui/icons/Visibility';
 import DiffIcon from '@material-ui/icons/Build';
+import 'typeface-roboto'
 
 import PositionedSnackbar from './PositionedSnackbar';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
-    paddingTop: 16,
+    paddingTop: 80,
     paddingLeft: 5,
     paddingBottom: 16,
     marginTop: 0,
@@ -28,7 +29,8 @@ const styles = theme => ({
     width: 250,
     top: 0,
     left: 0,
-    height: '100%'
+    height: '100vh',
+    fontFamily: 'typeface-roboto'
   }),
 });
 
@@ -38,7 +40,7 @@ function PaperSheet(props) {
     <div>
       <Paper className={classes.root} elevation={4}>
         <Typography variant="headline" component="h3">
-          Menu
+         
         </Typography>
         <List component="nav">
         <ListItem button>
